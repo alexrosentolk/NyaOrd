@@ -1,0 +1,399 @@
+<html lang="sv">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Nya ord</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+
+<div class="container">
+
+
+<!-- =========================
+     SPRÅKVAL
+========================= -->
+
+<section id="languagePage" class="page active">
+
+
+<h1>NyaOrd</h1>
+
+<h2>Välj språk</h2>
+
+
+<div class="menu-buttons">
+
+
+<button onclick="selectLanguage('svenska')">
+Svenska
+</button>
+
+
+<button onclick="selectLanguage('engelska')">
+Engelska
+</button>
+
+
+<button onclick="selectLanguage('franska')">
+Franska
+</button>
+
+
+<button onclick="selectLanguage('spanska')">
+Spanska
+</button>
+
+
+<button onclick="selectLanguage('tyska')">
+Tyska
+</button>
+
+
+<button onclick="selectLanguage('arabiska')">
+Arabiska
+</button>
+
+
+<button onclick="selectLanguage('nederlands')">
+Nederländska
+</button>
+
+
+</div>
+
+</section>
+
+
+
+
+
+<!-- =========================
+     HUVUDMENY
+========================= -->
+
+
+<section id="homePage" class="page">
+
+
+<h1 id="languageTitle"
+onclick="showPage('languagePage')">
+
+Nya ord
+
+</h1>
+
+
+<p id="languageSubtitle">
+Samla organisera och repetera ord
+</p>
+
+
+<div id="loadingMessage"></div>
+
+
+<div class="menu-buttons">
+
+
+<button onclick="showPage('addPage')">
+Lägg till ord
+</button>
+
+
+<button onclick="openWordList()">
+Ordlista
+</button>
+
+
+<button onclick="openQuizSetup()">
+Förhör
+</button>
+
+
+<button onclick="showPage('languagePage')">
+Byt språk
+</button>
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+<!-- =========================
+     LÄGG TILL ORD
+========================= -->
+
+
+<section id="addPage" class="page">
+
+
+<h2>Lägg till ord</h2>
+
+
+<input
+id="wordInput"
+type="text"
+placeholder="Ord eller uttryck">
+
+
+<textarea
+id="meaningInput"
+placeholder="Betydelse">
+</textarea>
+
+
+<textarea
+id="exampleInput"
+placeholder="Exempelmening (valfri)">
+</textarea>
+
+
+<input
+id="hideInput"
+type="text"
+placeholder="Ord att dölja i exempelmeningen">
+
+
+<input
+id="weekInput"
+type="number"
+placeholder="Vecka">
+
+
+<input
+id="yearInput"
+type="number"
+placeholder="År">
+
+
+
+<div class="buttons">
+
+
+<button onclick="saveWord()">
+Spara
+</button>
+
+
+<button onclick="backFromAddPage()">
+Till huvudmenyn
+</button>
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+<!-- =========================
+     ORDLISTA
+========================= -->
+
+
+<section id="listPage" class="page">
+
+
+<h2>Ordlista</h2>
+
+
+<div class="filters">
+
+
+<select id="sortSelect"
+onchange="renderWordList()">
+
+<option value="az">
+A–Ö
+</option>
+
+<option value="newest">
+Nyaste först
+</option>
+
+<option value="oldest">
+Äldsta först
+</option>
+
+</select>
+
+
+
+<select id="weekFilter"
+onchange="renderWordList()">
+
+<option value="">
+Alla veckor
+</option>
+
+</select>
+
+
+
+<select id="yearFilter"
+onchange="renderWordList()">
+
+<option value="">
+Alla år
+</option>
+
+</select>
+
+
+</div>
+
+
+
+<button onclick="showPage('homePage')">
+
+Till huvudmenyn
+
+</button>
+
+
+
+<div id="wordContainer"></div>
+
+
+</section>
+
+
+
+
+
+
+
+<!-- =========================
+     FÖRHÖR
+========================= -->
+
+
+<section id="quizPage" class="page">
+
+
+<h2>Förhör</h2>
+
+
+
+<div id="quizSetup">
+
+
+<select id="quizWeek">
+
+<option value="">
+Vecka
+</option>
+
+</select>
+
+
+
+<select id="quizYear">
+
+<option value="">
+År
+</option>
+
+</select>
+
+
+
+<select id="quizOrder">
+
+<option value="oldest">
+Kronologisk ordning
+</option>
+
+
+<option value="random">
+Slumpad ordning
+</option>
+
+
+</select>
+
+
+
+<button id="startQuizButton"
+onclick="startQuiz()">
+
+Starta
+
+</button>
+
+
+</div>
+
+
+
+
+
+<button id="restartQuizButton"
+onclick="startQuiz()"
+style="display:none;">
+
+Börja om
+
+</button>
+
+
+
+
+<button id="quizSettingsButton"
+onclick="backToQuizSettings()"
+style="display:none;">
+
+Tillbaka till förhörsinställningar
+
+</button>
+
+
+
+
+<div id="quizCounter"></div>
+
+
+<div id="quizContent"></div>
+
+
+
+
+<button onclick="backToHome()">
+
+Till huvudmenyn
+
+</button>
+
+
+
+</section>
+
+
+
+</div>
+
+
+</body>
+
+</html>
